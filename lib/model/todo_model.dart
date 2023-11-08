@@ -1,21 +1,31 @@
-enum Priority { high, medium, low }
+import 'package:flutter/material.dart';
+
+enum Priority {
+  low('Low', Colors.amber),
+  medium('Medium', Colors.green),
+  high('High', Colors.red);
+
+  const Priority(this.label, this.color);
+  final String label;
+  final Color color;
+}
 
 class TodoModel {
-  final int id;
+  final int? id;
   String task;
   String? description;
-  DateTime? date;
-  DateTime? time;
-  Priority priority = Priority.low;
-  bool isCompleted = false;
+  String? date;
+  String? time;
+  String priority = Priority.low.label;
+  int isCompleted = 0;
 
   TodoModel(
-      {required this.id,
+      { this.id,
       required this.task,
       required this.date,
       required this.time,
       required this.priority,
-      required this.isCompleted,
+    required this.isCompleted,
       required this.description});
 
   factory TodoModel.fromMap(Map<String, dynamic> json) {

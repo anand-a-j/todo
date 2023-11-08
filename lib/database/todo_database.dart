@@ -31,7 +31,7 @@ class TodoDatebase {
       'date': todo.date,
       'time': todo.time,
       'priority': todo.priority.toString(),
-      'isCompleted': todo.isCompleted ? 1 : 0,
+      'isCompleted': todo.isCompleted,
       'description': todo.description
     });
     return id;
@@ -40,9 +40,52 @@ class TodoDatebase {
   /// Fetch all todos-----------------------------------------------------------
   static Future<List<TodoModel>> fetchAllTodos() async {
     final db = await TodoDatebase.openDb();
-    final List<TodoModel> data = await db.rawQuery("SELECT * FROM todo") as List<TodoModel>;
+    final List<Map<String, dynamic>> results =
+        await db.rawQuery("SELECT * FROM todo");
+    List<TodoModel> data = [];
+    for (var result in results) {
+      data.add(TodoModel.fromMap(result));
+    }
     return data;
   }
-  
 
+  /// Update todo----------------------------------------------------------------
+  static Future<void> updateTodo(TodoModel todo) async {
+    final db = await TodoDatebase.openDb();
+    try {
+       await db.update(
+          'todo',
+          {
+            'task': todo.task,
+            'date': todo.date,
+            'time': todo.time,
+            'priority': todo.priority.toString(),
+            'isCompleted': todo.isCompleted,
+            'description': todo.description
+          },
+          where: 'id = ?',
+          whereArgs: [todo.id]);
+    } catch (e) {
+      print("upadte errrr ==> ${e.toString()}");
+    }
+  }
+
+  /// updateTodoCompletion------------------------------------------------------
+  static Future<void> updateTodoCompletion(int id, bool isCompleted) async {
+    final db = await TodoDatebase.openDb();
+    await db.update('todo', {'isCompleted': isCompleted ? 1 : 0},
+        where: 'id=?', whereArgs: [id]);
+  }
+
+  /// Delete todo---------------------------------------------------------------
+  static Future<void> deleteTodo(int id) async {
+    final db = await TodoDatebase.openDb();
+    await db.delete('todo', where: 'id=?', whereArgs: [id]);
+  }
+
+  /// Delete all todos----------------------------------------------------------
+  static Future<void> deleteAllTodos() async {
+    final db = await TodoDatebase.openDb();
+    await db.delete('todo');
+  }
 }
