@@ -16,12 +16,7 @@ class TodoModel {
       required this.time,
       required this.priority,
       required this.isCompleted,
-      required this.description}) {
-    description ?? '';
-    print(description);
-    date ?? DateTime.now();
-    time ?? DateTime.now();
-  }
+      required this.description});
 
   factory TodoModel.fromMap(Map<String, dynamic> json) {
     return TodoModel(
@@ -38,11 +33,11 @@ class TodoModel {
     return {
       'id': id,
       'task': task,
-      'date': date,
-      'time': time,
+      'date': date ?? DateTime.now(),
+      'time': time ?? DateTime.now(),
       'priority': priority,
       'isCompleted': isCompleted,
-      'description': description
+      'description': description ?? ''
     };
   }
 }

@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   sqflite: ^2.3.0
   provider: ^6.0.5
+  date_picker_timeline: ^1.2.5
 
 dev_dependencies:
   flutter_test:
