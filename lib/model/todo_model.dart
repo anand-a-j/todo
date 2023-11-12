@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 enum Priority {
-  low('Low', Colors.amber),
-  medium('Medium', Colors.green),
-  high('High', Colors.red);
+  low('Low', Color.fromARGB(255, 250, 254, 43)),
+  medium('Medium', Color(0xff867dff)),
+  high('High', Color(0xfff47575));
 
   const Priority(this.label, this.color);
   final String label;
@@ -16,17 +16,20 @@ class TodoModel {
   String? description;
   String? date;
   String? time;
+  String? color;
   String priority = Priority.low.label;
   int isCompleted = 0;
 
   TodoModel(
-      { this.id,
+      {this.id,
       required this.task,
       required this.date,
       required this.time,
+      required this.color,
       required this.priority,
-    required this.isCompleted,
-      required this.description});
+      required this.isCompleted,
+      required this.description
+      });
 
   factory TodoModel.fromMap(Map<String, dynamic> json) {
     return TodoModel(
@@ -36,18 +39,21 @@ class TodoModel {
         time: json['time'],
         priority: json['priority'],
         isCompleted: json['isCompleted'],
-        description: json['description']);
+        description: json['description'],
+        color: json['color']
+        );
   }
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
       'task': task,
-      'date': date ?? DateTime.now(),
-      'time': time ?? DateTime.now(),
+      'date': date,
+      'time': time,
+      'color': color,
       'priority': priority,
       'isCompleted': isCompleted,
-      'description': description ?? ''
+      'description': description ?? '0xffffd8f4'
     };
   }
 }

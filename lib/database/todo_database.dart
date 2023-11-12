@@ -4,7 +4,7 @@ import 'package:todo/model/todo_model.dart';
 class TodoDatebase {
   /// Create Database-------------------------------------------------------------
   static Future<sql.Database> openDb() async {
-    return sql.openDatabase('todo_db', version: 1,
+    return sql.openDatabase('todo_db', version: 2,
         onCreate: ((db, version) async {
       await createTable(db);
     }));
@@ -17,6 +17,7 @@ class TodoDatebase {
         task TEXT,
         date TEXT,
         time TEXT,
+        color TEXT,
         priority TEXT,
         isCompleted INTEGER,
         description TEXT
@@ -30,6 +31,7 @@ class TodoDatebase {
       'task': todo.task,
       'date': todo.date,
       'time': todo.time,
+      'color': todo.color.toString(),
       'priority': todo.priority.toString(),
       'isCompleted': todo.isCompleted,
       'description': todo.description
@@ -52,22 +54,20 @@ class TodoDatebase {
   /// Update todo----------------------------------------------------------------
   static Future<void> updateTodo(TodoModel todo) async {
     final db = await TodoDatebase.openDb();
-    try {
        await db.update(
           'todo',
           {
             'task': todo.task,
             'date': todo.date,
             'time': todo.time,
+            'color': todo.color.toString(),
             'priority': todo.priority.toString(),
             'isCompleted': todo.isCompleted,
             'description': todo.description
+            
           },
           where: 'id = ?',
           whereArgs: [todo.id]);
-    } catch (e) {
-      print("upadte errrr ==> ${e.toString()}");
-    }
   }
 
   /// updateTodoCompletion------------------------------------------------------
