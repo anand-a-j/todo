@@ -3,6 +3,7 @@ import 'package:todo/utils/colors.dart';
 
 ThemeData buildDarkTheme() {
   return ThemeData.dark().copyWith(
+    useMaterial3: false,
     colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.deepPurple),
     primaryColorDark: primaryColor,
     primaryColor: primaryColor,
@@ -44,6 +45,7 @@ ThemeData buildDarkTheme() {
 
 ThemeData buildLightTheme() {
   return ThemeData.light().copyWith(
+    useMaterial3: false,
     colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.deepPurple),
     primaryColorLight: primaryColor,
     primaryColor: primaryColor,
