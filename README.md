@@ -2,7 +2,7 @@
 # Flutter TODO App
 
 ## Screenshots
-<p align="center">
+<p align="left">
 <img src="/assets/screenshots/screenshot_1.png" alt="Screenshot 1" width="200" height="400" style="margin-right: 10px;">
 <img src="/assets/screenshots/screenshot_2.png" alt="Screenshot 2" width="200" height="400" style="margin-right: 10px;">
 <img src="/assets/screenshots/screenshot_3.png" alt="Screenshot 3" width="200" height="400">
