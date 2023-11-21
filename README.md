@@ -2,6 +2,9 @@
 # Flutter TODO App
 
 ## Screenshots
+![Alt text](/assets/screenshots/screenshot_1.png?raw=true "screenshot1")
+![Alt text](/assets/screenshots/screenshot_2.png?raw=true "screenshot2")
+![Alt text](/assets/screenshots/screenshot_3.png?raw=true "screenshot3")
 
 ## Overview
 
@@ -18,31 +21,23 @@ This Flutter application is a versatile TODO list manager with robust state mana
 ## Getting Started
 
 1. Clone the repository:
-
-   git clone https://github.com/your-username/your-repo.git
-
-2. Navigate to the project folder:
-
    ```bash
-   cd your-repo
+   git clone https://github.com/anand-a-j/todo.git
    ```
-
+2. Navigate to the project folder:
+   ```bash
+   cd todo
+   ```
 3. Install dependencies:
-
    ```bash
    flutter pub get
    ```
-
 4. Run the app:
-
    ```bash
    flutter run
    ```
-
 ## Contributing
 
 Contributions are welcome! Feel free to open issues and pull requests to contribute to the development of this TODO app.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## Thank You🙏
