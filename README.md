@@ -2,9 +2,9 @@
 # Flutter TODO App
 
 ## Screenshots
-![Alt text](/assets/screenshots/screenshot_1.png?raw=true "screenshot1")
-![Alt text](/assets/screenshots/screenshot_2.png?raw=true "screenshot2")
-![Alt text](/assets/screenshots/screenshot_3.png?raw=true "screenshot3")
+<img src="/assets/screenshots/screenshot_1.png" alt="Screenshot 1" width="200" height="400" style="margin-right: 10px;">
+<img src="/assets/screenshots/screenshot_2.png" alt="Screenshot 2" width="200" height="400" style="margin-right: 10px;">
+<img src="/assets/screenshots/screenshot_3.png" alt="Screenshot 3" width="200" height="400">
 
 ## Overview
 
